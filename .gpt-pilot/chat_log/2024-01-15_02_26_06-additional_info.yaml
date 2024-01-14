@@ -1,0 +1,328 @@
+endpoint: OPENAI
+model: gpt-4-1106-preview
+messages:
+- role: system
+  content: You are an experienced project owner (project manager) who manages the entire process of creating software applications
+    for clients from the client specifications to the development. You act as if you are talking to the client who wants his
+    idea about a software application created by you and your team. You always think step by step and ask detailed questions
+    to completely understand what does the client want and then, you give those specifications to the development team who
+    creates the code for the app. Any instruction you get that is labeled as **IMPORTANT**, you follow strictly.
+- role: user
+  content: 'I want you to create the App (let''s call it "AutoWeb") that can be described like this:
+
+    ```
+
+    AutoWeb is poised to be a game-changer in the field of information gathering and knowledge base creation. To further develop
+    the scope of AutoWeb, we should consider several key aspects:
+
+
+    Advanced Targeting Algorithms: Enhance AutoWeb''s ability to identify and scrape relevant data by integrating sophisticated
+    algorithms. These algorithms can analyze the context and relevance of the content in relation to the provided keywords
+    or URLs, ensuring that only the most pertinent information is collected.
+
+
+    Machine Learning Integration: Implement machine learning capabilities to refine the crawling and scraping process over
+    time. This feature can learn from previous searches to optimize future crawls, making the tool more intelligent and efficient
+    with each use.
+
+
+    Customizable Data Processing: Provide users with tools to customize how scraped data is processed and stored. This includes
+    formatting options, tagging, categorization, and integration with existing databases or knowledge management systems.
+
+
+    User Interface and Experience: Develop an intuitive and user-friendly interface that allows users to easily set parameters,
+    view progress, and access the collected data. This could include a dashboard for real-time monitoring of crawling and
+    scraping activities.
+
+
+    Compliance and Security Features: Ensure that AutoWeb adheres to legal and ethical standards, particularly in terms of
+    web scraping laws and data privacy regulations. Implement robust security measures to protect both the tool and the data
+    it collects from potential cyber threats.
+
+
+    Collaboration Tools: Introduce features that allow multiple users to collaborate on a single project. This can include
+    shared workspaces, project management tools, and communication platforms integrated within AutoWeb.
+
+
+    Scalability and Performance Optimization: Design AutoWeb to handle large-scale operations without compromising performance.
+    This includes efficient resource management and the ability to scale up operations as needed.
+
+
+    Analytics and Reporting Capabilities: Equip AutoWeb with analytics tools to analyze the collected data. Provide comprehensive
+    reporting features that allow users to gain insights and make informed decisions based on the data gathered.
+
+
+    Integration with GPT and Other AI Technologies: As AutoWeb collects data, integrate it with GPT and other AI technologies
+    for enhanced analysis, summarization, and application of the data in various contexts.
+
+
+    Continuous Updates and Support: Plan for regular updates to keep up with the latest web technologies and security standards.
+    Provide robust customer support to assist users with any issues or queries.
+
+
+    By focusing on these areas, AutoWeb can be developed into a more powerful, efficient, and user-friendly tool, significantly
+    enhancing its ability to construct comprehensive and reliable knowledge bases.
+
+    ```'
+- role: system
+  content: 'I''m going to show you an overview of tasks that you need to do to lead the process of creating this App and for
+    each task, I will tell you an example of how would you solve this task for the example app.
+
+    Example app description: `Create a script that finds Youtube channels with the word "test" inside the channel name`.
+
+
+    Here is an overview of the tasks that you need to do:
+
+
+    1. Getting additional answers. In this task, you think from a high level perspective and ask if anything is unclear in
+    regards to the description that I''ve given to you. You don''t need to ask every single detail to cover all possible edge
+    cases but only questions that might be relevant to ask upon first touch with the client. I will answer any questions you
+    list here so you have a better understanding of the app that needs to be built. In the example description, you could
+    ask the following questions:
+
+    - `do you want to enable user to be able to specify different word to search for in channel name?`
+
+    - `do you want to save the results in a CSV file on the disk?`
+
+
+    2. Break down user stories. In this task, you will think about the App description and the answers from step #1 and create
+    a list of all user stories. A user story is a description of how a user can interact with the App. In the example description,
+    user stories could be:
+
+    - `user will run the script from the CLI`
+
+    - `user will get the list of all channels in a CSV file`
+
+
+    3. Break down user tasks. In this task, you will think about the App description, answers from step #1 and the user stories
+    from the step #2 and create a list of user tasks that a user needs to do to interact with the App. In the example description,
+    user tasks could be:
+
+    - `user runs the CLI command in which they specify the keyword youtube channel needs to contain and the location where
+    the CSV file will be saved to`
+
+
+    Let''s start with the task #1 Getting additional answers. Think about the description for the App "AutoWeb" and ask questions
+    that you would like to get cleared before going onto breaking down the user stories.
+
+
+    **IMPORTANT**
+
+    Do not use, create or suggest any microservices. Create strictly monolithic application even if in some prompts I might
+    suggest microservices might be better or more desired solution. Do your best to find a solution to any requirement without
+    using microservices.
+
+
+    **IMPORTANT**
+
+    Here are the instructions for Asking Additional Questions:
+
+
+    Direct Questions Only: If there are any points that are not clear, you should draft direct questions to clarify them.
+    Do not include any preamble, gratitude expressions, or background when posing these questions.
+
+
+    Concise and Focused: Each question should be concise and focus on one aspect of the project. Do not merge multiple queries
+    into a single question, as this can cause confusion.
+
+
+    No Lead-ins or Conclusions: After receiving an answer to a question, proceed directly to the next question without adding
+    any thank yous, recaps, or segues.
+
+
+    Neutral Tone: Ensure that your questions are neutral and don''t imply any assumptions. The objective is to gather information,
+    not to lead the respondent in any particular direction.
+
+
+    Examples:
+
+    Instead of "Thank you for that information. My next question is: Should A be bigger than B?", simply ask "Should A be
+    bigger than B?".
+
+    Instead of "Based on what you said earlier, do we need to prioritize X over Y?", just ask "Do we need to prioritize X
+    over Y?".
+
+
+    Remember: The goal is to extract precise information without adding any unnecessary dialogue. Your questions should be
+    straightforward and to the point.
+
+
+    I want your response to be only one question at a time. I will ask you again when I am ready for next question.
+
+
+    Ask maximum of 5 questions and after that I want you to respond with "EVERYTHING_CLEAR".
+
+
+    If everything is clear before asking those 5 questions, you write the response in the following format:
+
+    "EVERYTHING_CLEAR"'
+- role: assistant
+  content: What specific data types are we targeting for scraping with AutoWeb (text, images, videos, etc.)?
+- role: user
+  content: 'To optimize AutoWeb for maximum efficiency and utility, it''s crucial to define the specific data types that the
+    tool will target for scraping. Here''s a detailed scope for the types of data AutoWeb can focus on:
+
+
+    Textual Content:
+
+
+    Webpage Articles and Blogs: Scrape full articles, blogs, and news pieces for textual information.
+
+    Research Papers and Reports: Extract text from academic papers, industry reports, and whitepapers.
+
+    Forum Posts and Comments: Gather user-generated content from forums, comment sections, and discussion boards.
+
+    Structured Data:
+
+
+    Tables and Lists: Scrape data presented in tables and lists for structured insights, like product specifications or pricing
+    information.
+
+    HTML/XML/JSON Data: Extract information from web pages structured in HTML, XML, or JSON formats.
+
+    Images:
+
+
+    Photographs and Graphics: Scrape images for various purposes, such as product images, infographics, and photographs.
+
+    Image Metadata: Extract metadata associated with images, including tags, descriptions, and source information.
+
+    Videos:
+
+
+    Video Content: Scrape video files from websites for analysis or archiving.
+
+    Thumbnails and Previews: Extract thumbnails or preview images of videos.
+
+    Video Metadata: Gather metadata such as titles, descriptions, upload dates, and creator information.
+
+    Audio Files:
+
+
+    Podcasts and Audio Clips: Scrape audio files for content analysis or collection.
+
+    Transcripts: Extract transcripts of audio files, if available.
+
+    Social Media Content:
+
+
+    Posts and Tweets: Scrape posts, tweets, and updates from various social media platforms.
+
+    User Profiles: Extract public information from social media profiles.
+
+    Social Graphs: Gather data on social interactions, likes, shares, and comments.
+
+    E-commerce Data:
+
+
+    Product Information: Scrape product descriptions, reviews, and ratings from e-commerce sites.
+
+    Pricing and Availability: Extract pricing, discount, and stock availability data.
+
+    Geospatial Data:
+
+
+    Maps and Locations: Scrape map data, location coordinates, and place information.
+
+    Geotagged Content: Extract information from geotagged photos, posts, or listings.
+
+    Scientific and Statistical Data:
+
+
+    Datasets: Scrape datasets published on websites for research and analysis.
+
+    Charts and Graphs: Extract visual representations of data, such as charts and graphs, for analysis.
+
+    PDFs and Documents:
+
+
+    Scrape content from PDF files, Word documents, and other digital document formats.
+
+    Event and Schedule Information:
+
+
+    Extract event details, schedules, and calendar entries from various sites.
+
+    By targeting these specific data types, AutoWeb will be well-equipped to serve a wide range of industries and user needs,
+    from academic research to market analysis and beyond. This comprehensive approach ensures that users can build rich and
+    diverse knowledge bases tailored to their specific requirements.'
+- role: assistant
+  content: Will AutoWeb need to have configuration options for different languages or support multilingual content scraping
+    and processing?
+- role: user
+  content: 'Incorporating multilingual support into AutoWeb is essential for maximizing its global usability and effectiveness.
+    Here''s a scope for developing multilingual content scraping and processing capabilities in AutoWeb:
+
+
+    Multilingual Content Scraping:
+
+
+    Enable AutoWeb to identify and scrape content in multiple languages. This involves recognizing various character sets
+    and text formats used in different languages.
+
+    Implement language detection algorithms to automatically identify the language of the content being scraped.
+
+    Language-Specific Crawling Parameters:
+
+
+    Allow users to specify the language(s) they are interested in when setting up the crawling parameters. This can help in
+    targeting specific language websites or sections of a website.
+
+    Incorporate regional and language-specific search engines or databases into the crawling process for more comprehensive
+    results.
+
+    Translation and Localization Tools:
+
+
+    Integrate translation tools to provide users with the option to translate scraped content into their preferred language.
+
+    Ensure that the translation maintains the integrity and context of the original content, especially important for technical
+    or specialized information.
+
+    Multilingual Data Processing and Analysis:
+
+
+    Develop capabilities to process and analyze data in different languages. This includes text analysis, keyword extraction,
+    and sentiment analysis in multiple languages.
+
+    Store the scraped data in its original language, along with metadata about the language for easier sorting and filtering.
+
+    User Interface in Multiple Languages:
+
+
+    Design the AutoWeb user interface to be available in multiple languages, enhancing accessibility for users from different
+    linguistic backgrounds.
+
+    Implement an easy-to-use language switcher within the application.
+
+    Support for Non-Latin Scripts:
+
+
+    Ensure that AutoWeb can handle non-Latin scripts such as Cyrillic, Chinese, Arabic, etc., both in terms of scraping and
+    displaying the data correctly.
+
+    Address challenges related to right-to-left languages or languages with complex character sets.
+
+    Cultural and Contextual Considerations:
+
+
+    Understand and address the cultural and contextual nuances in content scraping. This is particularly important for languages
+    where meaning can be highly context-dependent.
+
+
+    Collaboration with Language Experts:
+
+
+    Collaborate with linguists or language experts, especially for less commonly spoken languages, to ensure accuracy in translation
+    and contextual understanding.
+
+    Customizable Language Settings for Users:
+
+
+    Allow users to customize language settings, including the option to include or exclude content in specific languages based
+    on their requirements.
+
+    By incorporating these multilingual features, AutoWeb will become a versatile tool capable of catering to a diverse global
+    user base, making it an invaluable resource for international research, market analysis, and global data collection.'
+response: Is AutoWeb expected to have its own database for storing scraped content, or should it integrate with external databases
+  provided by the user?

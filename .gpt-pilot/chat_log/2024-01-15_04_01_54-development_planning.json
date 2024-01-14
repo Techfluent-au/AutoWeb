@@ -1,0 +1,119 @@
+{
+  "endpoint": "OPENAI",
+  "model": "gpt-4-1106-preview",
+  "functions": [
+    {
+      "name": "implement_development_plan",
+      "description": "Implements the development plan.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "plan": {
+            "type": "array",
+            "description": "List of development tasks that need to be done to implement the entire plan.",
+            "items": {
+              "type": "object",
+              "description": "Development task that needs to be done to implement the entire plan.",
+              "properties": {
+                "description": {
+                  "type": "string",
+                  "description": "Description of the development task that needs to be done to implement the entire plan."
+                },
+                "programmatic_goal": {
+                  "type": "string",
+                  "description": "Detailed description of programmatic goal. Programmatic goal that will determine if a task can be marked as done from a programmatic perspective (this will result in an automated test that is run before the task is sent to you for a review). All details previously specified by user that are important for this task must be included in this programmatic goal."
+                },
+                "user_review_goal": {
+                  "type": "string",
+                  "description": "User review goal that will determine if a task is done or not, but from a user perspective since it will be reviewed by a human."
+                }
+              },
+              "required": [
+                "description",
+                "programmatic_goal",
+                "user_review_goal"
+              ]
+            }
+          }
+        },
+        "required": [
+          "plan"
+        ]
+      }
+    }
+  ],
+  "response": {
+    "plan": [
+      {
+        "description": "Set up the project structure, create a Node.js application with Express and initialize a Git repository. Also, establish linting and formatting standards using ESLint and Prettier.",
+        "programmatic_goal": "Run a Node.js application with Express that serves a `GET /ping` endpoint returning HTTP 200 and a 'pong' message. ESLint and Prettier must be configured with the standard style and no lint errors should be present in the initial commit.",
+        "user_review_goal": "When visiting `/ping`, the server responds with 'pong' and the initial commit code should adhere to the standard code style."
+      },
+      {
+        "description": "Create and configure a MongoDB database with Mongoose, and set up a user authentication system using Passport.js with a simple User schema.",
+        "programmatic_goal": "Successfully connect to a MongoDB instance and authenticate a user using Passport.js with local strategy. Test endpoints /register and /login should be working with the ability to register a new user and login with its credentials.",
+        "user_review_goal": "Register a new user on `/register` and then log in with the same credentials on `/login`, ensuring user data is persisted correctly."
+      },
+      {
+        "description": "Develop the data scraping module using Puppeteer and Cheerio for dynamic and static content respectively, including basic target URLs management.",
+        "programmatic_goal": "Write a module capable of scraping static content from a given URL using Cheerio and dynamic content using Puppeteer. Ensure scrapers handle a list of target URLs stored in the database and return scraped content.",
+        "user_review_goal": "Verify that the scraper can collect data from multiple static and dynamic target URLs and store them into the database."
+      },
+      {
+        "description": "Implement the advanced targeting algorithm module that can select URLs based on provided keywords.",
+        "programmatic_goal": "Create an algorithm that takes keywords and identifies relevant URLs for scraping. The algorithm should be able to update the database with new targeted URLs based on keyword matches.",
+        "user_review_goal": "Ensure that the targeting algorithm recommends accurate URLs for a given set of keywords after a manual review."
+      },
+      {
+        "description": "Design and implement a multilingual content scraping system that includes automatic language detection and language-specific crawling parameters.",
+        "programmatic_goal": "Implement functionality to detect the language of scraped content automatically and to apply different crawling parameters based on the detected language.",
+        "user_review_goal": "Confirm that the scraper successfully identifies the language of content and applies the correct crawling parameters for at least two different languages."
+      },
+      {
+        "description": "Integrate TensorFlow.js for machine learning process optimization, such as refining scraping strategies and performance improvements.",
+        "programmatic_goal": "Use TensorFlow.js to create and train a simple model based on scraping results. The model should optimize the decision process of whether to continue scraping similar content.",
+        "user_review_goal": "Validate that the system uses machine learning feedback to adjust its scraping strategy, resulting in improved efficiency observable in performance metrics."
+      },
+      {
+        "description": "Develop the customizable data processing and storage system to manage various data types with a scalable internal database, and external export features.",
+        "programmatic_goal": "Code a data processing system that formats, tags, and categorizes scraped content. Implement the database schemas using Mongoose for the various data types and establish export functionalities.",
+        "user_review_goal": "Ensure that the system can display formatted data, apply tags and categorization, and successfully export data to a specified external format."
+      },
+      {
+        "description": "Create React frontend applications with React-Redux for state management and an intuitive, multilingual user interface using i18next.",
+        "programmatic_goal": "Develop a React application with Redux for state management, incorporate the i18next library for internationalization and ensure that the user interface is intuitive and capable of real-time updates.",
+        "user_review_goal": "Verify that the web application is user-friendly, supports multiple languages, and reflects real-time data changes."
+      },
+      {
+        "description": "Implement the real-time dashboard with data analytics and reporting capabilities using Socket.io, Moment, Cron, and ECharts.",
+        "programmatic_goal": "Build a real-time dashboard that displays analytics and reports using live data. The dashboard should update using Socket.io, format times with Moment, handle scheduled operations with Cron, and represent data visually with ECharts.",
+        "user_review_goal": "Check that the dashboard functions in real-time, with scheduled data updates, proper time formatting, and data visualization that makes sense for the scraped data."
+      },
+      {
+        "description": "Add the security, compliance, and data protection features using Helmet, jwt, bcrypt and ensure regular updates through Node-Cron.",
+        "programmatic_goal": "Integrate Helmet for basic security protections, implement JWT and bcrypt for secure authentication, and set up Node-Cron tasks for regular updates of the system.",
+        "user_review_goal": "Ascertain that the system is secure against common vulnerabilities, authentication is robust, and scheduled updates occur without issues."
+      },
+      {
+        "description": "Develop integration features with GPT and other AI technologies for data analysis and summarization using Googleapis and custom AI modules.",
+        "programmatic_goal": "Code modules that leverage GPT and other AI tools through Googleapis or similar libraries to analyze and summarize the data, with an interface for users to interact with this functionality.",
+        "user_review_goal": "Confirm the application can analyze and create summaries of scraped data using AI technologies and provide understandable insights to the user."
+      },
+      {
+        "description": "Set up collaboration tools within the app for project co-management and communication using Socket.io for real-time interaction.",
+        "programmatic_goal": "Build in-app collaboration tools that include project management features and real-time communication capabilities using Socket.io to facilitate synchronous cooperation between users.",
+        "user_review_goal": "Verify that users can co-manage projects and communicate in real-time within the app effectively."
+      },
+      {
+        "description": "Implement comprehensive logging and error handling using Winston, Morgan, and custom middleware to provide a robust monitoring system.",
+        "programmatic_goal": "Integrate Winston for logging, Morgan for HTTP request logging, and write middleware to handle errors gracefully. There should be clear logs for both regular operations and errors.",
+        "user_review_goal": "Monitor app activities and errors to ensure that the logging is comprehensible and that the system responds gracefully to issues."
+      },
+      {
+        "description": "Conduct final integration and compatibility checks, confirming everything works harmoniously, including API connections, data sync, and user functionality.",
+        "programmatic_goal": "Execute a thorough integration test to ensure all components of the application work together without conflicts, APIs are properly connected, the data is syncing in real-time, and all user-facing features are operational.",
+        "user_review_goal": "Perform a final review of the app's complete functionality, making sure the user experience is seamless, and all components are interacting without errors."
+      }
+    ]
+  }
+}

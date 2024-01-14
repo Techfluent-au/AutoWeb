@@ -1,0 +1,173 @@
+endpoint: OPENAI
+model: gpt-4-1106-preview
+messages:
+- role: system
+  content: You are an experienced software architect. Your expertise is in creating an architecture for an MVP (minimum viable
+    products) for Apps that can be developed as fast as possible by using as many ready-made technologies as possible.
+- role: user
+  content: 'You are working in a software development agency and a project manager approached you telling you that you''re
+    assigned to work on a new project. You  are working on a App called "AutoWeb" and you need to create specifications on
+    what technologies should be used in this project.
+
+
+    Here is a high level description of "AutoWeb":
+
+    ```
+
+    The software application "AutoWeb" will be built with the following features:
+
+
+    - Advanced Targeting Algorithms to enhance data identification and scraping activities based on keywords or URLs.
+
+    - Machine Learning Integration for process optimization over time.
+
+    - Customizable Data Processing to allow users to format, tag, categorize, and integrate data with their systems.
+
+    - An intuitive User Interface and Experience with real-time crawling and scraping activity monitoring through dashboards.
+
+    - Compliance and Security Features for adherence to web scraping laws and data protection.
+
+    - Collaboration Tools for project co-management and communication.
+
+    - Scalability and Performance Optimization capable of large-scale operations.
+
+    - Analytics and Reporting Capabilities for data insights and decision-making processes.
+
+    - Integration with GPT and Other AI Technologies for data analysis and summarization.
+
+    - Continuous Updates and Support adjusted to the latest web technologies and customer needs.
+
+
+    AutoWeb will specifically target the following data types for scraping:
+
+
+    - Textual Content such as webpage articles, blogs, research papers, reports, and forum posts.
+
+    - Structured Data including tables, lists, and data in HTML/XML/JSON.
+
+    - Images, their associated metadata, photographs, and graphics.
+
+    - Videos along with their thumbnails, previews, and metadata.
+
+    - Audio Files and accompanied transcripts if available.
+
+    - Social Media Content including posts, user profile information, and social graphs.
+
+    - E-commerce Data like product information, pricing, reviews, ratings, and availability.
+
+    - Geospatial Data encompassing maps, locations, and geotagged content.
+
+    - Scientific and Statistical Data including datasets, charts, and graphs.
+
+    - PDFs and Documents.
+
+    - Event and Schedule Information.
+
+
+    Multilingual support features will include:
+
+
+    - Multilingual Content Scraping with automatic language detection.
+
+    - Language-Specific Crawling Parameters.
+
+    - Translation and Localization Tools.
+
+    - Multilingual Data Processing and Analysis.
+
+    - A User Interface in multiple languages.
+
+    - Support for Non-Latin Scripts.
+
+    - Cultural and Contextual Considerations with collaboration from language experts.
+
+    - Customizable Language Settings for Users.
+
+
+    Storage solutions for AutoWeb will entail:
+
+
+    - An internal scalable database system for storing and managing diverse data types.
+
+    - User-friendly data management tools for stored data navigation, editing, organization, and tagging.
+
+    - Automated Backup and Recovery systems for data integrity.
+
+    - Compatibility with various external database formats and systems, with seamless data exportability.
+
+    - Customizable Export Options for data formatting.
+
+    - API Integration for easy connection with external databases and systems.
+
+    - Real-Time Sync Capability to keep external databases current with new data.
+
+
+    AutoWeb will offer both internal and external data storage options providing flexibility, scalability, convenience, and
+    compliance with diverse security requirements.
+
+    ```
+
+
+
+
+    Now, based on the projects details, think step by step and list the names of the technologies that will be used by your
+    development team to create the app "AutoWeb".
+
+    Do not give any subjective thoughts or options, give exact technologies, for example:
+
+    Instead of ["D3.js or other suitable charting library", "axios or other http client library"] answer with ["D3.js", "axios"].
+
+
+    You do not need to list any technologies related to automated tests (like Jest, Cypress, Mocha, Selenium, etc) or  any
+    technologies related to deployment (like Heroku).
+
+
+    **Project Technology Guidelines**
+
+    Relevance: Only include technologies that are essential and will be actively used in the project. Avoid mentioning any
+    technologies that are not required. For example, don''t suggest MongoDB if database is not needed for project.
+
+    Compatibility: Ensure that the listed technologies are compatible with each other. Exclude any technologies that cannot
+    be integrated or used in conjunction with others. For example, Pandas (Python library) and Node.js can''t be used together.
+    Another example is MongoDB (NoSQL database) and MySQL (SQL database) shouldn''t be used together unless that is specified
+    in project description.
+
+    Technology Preferences: In scenarios where multiple technology options are available for a specific project component,
+    prioritize the following preferred technologies:
+
+    - Node.js,
+
+    - MongoDB,
+
+    - PeeWee,
+
+    - Bootstrap,
+
+    - HTML,
+
+    - CSS3,
+
+    - cronjob,
+
+    - Socket.io
+
+
+    **IMPORTANT**
+
+    Do not use, create or suggest any microservices. Create strictly monolithic application even if in some prompts I might
+    suggest microservices might be better or more desired solution. Do your best to find a solution to any requirement without
+    using microservices.'
+- role: user
+  content: "**IMPORTANT**\nYou must respond with ONLY the JSON object, with NO additional text or explanation.\n\nHere is\
+    \ the schema for the expected JSON object:\n```json\n{\n    \"technologies\": {\n        \"type\": \"array\",\n      \
+    \  \"description\": \"List of technologies.\",\n        \"items\": {\n            \"type\": \"string\",\n            \"\
+    description\": \"technology\"\n        }\n    }\n}\n```\n\n"
+response: "```json\n{\n    \"technologies\": [\n        \"Node.js\",\n        \"Express\",\n        \"MongoDB\",\n       \
+  \ \"Mongoose\",\n        \"Puppeteer\",\n        \"Cheerio\",\n        \"TensorFlow.js\",\n        \"React\",\n        \"\
+  Redux\",\n        \"Socket.io\",\n        \"Bootstrap\",\n        \"HTML\",\n        \"CSS3\",\n        \"axios\",\n   \
+  \     \"JSON\",\n        \"jsonwebtoken\",\n        \"bcryptjs\",\n        \"cors\",\n        \"helmet\",\n        \"compression\"\
+  ,\n        \"i18next\",\n        \"react-i18next\",\n        \"moment\",\n        \"cron\",\n        \"echarts\",\n    \
+  \    \"papaparse\",\n        \"multer\",\n        \"sharp\",\n        \"node-cron\",\n        \"nodemailer\",\n        \"\
+  winston\",\n        \"morgan\",\n        \"lodash\",\n        \"dotenv\",\n        \"passport\",\n        \"passport-local\"\
+  ,\n        \"express-session\",\n        \"connect-mongo\",\n        \"body-parser\",\n        \"serve-static\",\n     \
+  \   \"pdf-parse\",\n        \"xml2js\",\n        \"node-geocoder\",\n        \"googleapis\"\n    ]\n}\n```"

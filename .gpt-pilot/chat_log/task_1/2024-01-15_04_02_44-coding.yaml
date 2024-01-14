@@ -1,0 +1,382 @@
+endpoint: OPENAI
+model: gpt-4-1106-preview
+messages:
+- role: system
+  content: You are a full stack software developer who works in a software development agency. You write very modular and
+    clean code. Your job is to implement tasks that your tech lead assigns you. Each task has a description of what needs
+    to be implemented, a programmatic goal that will determine if a task can be marked as done and user-review goal that will
+    determine if a task is done or not but from a user perspective since it will be reviewed by a human.
+- role: user
+  content: 'You are working on a App called "AutoWeb" and you need to write code for the entire app based on the tasks that
+    the tech lead gives you. So that you understand better what you''re working on, you''re given other specs for "AutoWeb"
+    as well.
+
+
+    Here is a high level description of "AutoWeb":
+
+    ```
+
+    The software application "AutoWeb" will be built with the following features:
+
+
+    - Advanced Targeting Algorithms to enhance data identification and scraping activities based on keywords or URLs.
+
+    - Machine Learning Integration for process optimization over time.
+
+    - Customizable Data Processing to allow users to format, tag, categorize, and integrate data with their systems.
+
+    - An intuitive User Interface and Experience with real-time crawling and scraping activity monitoring through dashboards.
+
+    - Compliance and Security Features for adherence to web scraping laws and data protection.
+
+    - Collaboration Tools for project co-management and communication.
+
+    - Scalability and Performance Optimization capable of large-scale operations.
+
+    - Analytics and Reporting Capabilities for data insights and decision-making processes.
+
+    - Integration with GPT and Other AI Technologies for data analysis and summarization.
+
+    - Continuous Updates and Support adjusted to the latest web technologies and customer needs.
+
+
+    AutoWeb will specifically target the following data types for scraping:
+
+
+    - Textual Content such as webpage articles, blogs, research papers, reports, and forum posts.
+
+    - Structured Data including tables, lists, and data in HTML/XML/JSON.
+
+    - Images, their associated metadata, photographs, and graphics.
+
+    - Videos along with their thumbnails, previews, and metadata.
+
+    - Audio Files and accompanied transcripts if available.
+
+    - Social Media Content including posts, user profile information, and social graphs.
+
+    - E-commerce Data like product information, pricing, reviews, ratings, and availability.
+
+    - Geospatial Data encompassing maps, locations, and geotagged content.
+
+    - Scientific and Statistical Data including datasets, charts, and graphs.
+
+    - PDFs and Documents.
+
+    - Event and Schedule Information.
+
+
+    Multilingual support features will include:
+
+
+    - Multilingual Content Scraping with automatic language detection.
+
+    - Language-Specific Crawling Parameters.
+
+    - Translation and Localization Tools.
+
+    - Multilingual Data Processing and Analysis.
+
+    - A User Interface in multiple languages.
+
+    - Support for Non-Latin Scripts.
+
+    - Cultural and Contextual Considerations with collaboration from language experts.
+
+    - Customizable Language Settings for Users.
+
+
+    Storage solutions for AutoWeb will entail:
+
+
+    - An internal scalable database system for storing and managing diverse data types.
+
+    - User-friendly data management tools for stored data navigation, editing, organization, and tagging.
+
+    - Automated Backup and Recovery systems for data integrity.
+
+    - Compatibility with various external database formats and systems, with seamless data exportability.
+
+    - Customizable Export Options for data formatting.
+
+    - API Integration for easy connection with external databases and systems.
+
+    - Real-Time Sync Capability to keep external databases current with new data.
+
+
+    AutoWeb will offer both internal and external data storage options providing flexibility, scalability, convenience, and
+    compliance with diverse security requirements.
+
+    ```
+
+
+
+    Here are the technologies that you need to use for this project:
+
+    ```
+
+
+    - Node.js
+
+
+    - Express
+
+
+    - MongoDB
+
+
+    - Mongoose
+
+
+    - Puppeteer
+
+
+    - Cheerio
+
+
+    - TensorFlow.js
+
+
+    - React
+
+
+    - Redux
+
+
+    - Socket.io
+
+
+    - Bootstrap
+
+
+    - HTML
+
+
+    - CSS3
+
+
+    - axios
+
+
+    - JSON
+
+
+    - jsonwebtoken
+
+
+    - bcryptjs
+
+
+    - cors
+
+
+    - helmet
+
+
+    - compression
+
+
+    - i18next
+
+
+    - react-i18next
+
+
+    - moment
+
+
+    - cron
+
+
+    - echarts
+
+
+    - papaparse
+
+
+    - multer
+
+
+    - sharp
+
+
+    - node-cron
+
+
+    - nodemailer
+
+
+    - winston
+
+
+    - morgan
+
+
+    - lodash
+
+
+    - dotenv
+
+
+    - passport
+
+
+    - passport-local
+
+
+    - express-session
+
+
+    - connect-mongo
+
+
+    - body-parser
+
+
+    - serve-static
+
+
+    - pdf-parse
+
+
+    - xml2js
+
+
+    - node-geocoder
+
+
+    - googleapis
+
+
+    ```
+
+
+
+
+
+
+    We''ve broken the development of this app down to these tasks:
+
+    ```
+
+    1. Set up the project structure, create a Node.js application with Express and initialize a Git repository. Also, establish
+    linting and formatting standards using ESLint and Prettier.
+
+
+    2. Create and configure a MongoDB database with Mongoose, and set up a user authentication system using Passport.js with
+    a simple User schema.
+
+
+    3. Develop the data scraping module using Puppeteer and Cheerio for dynamic and static content respectively, including
+    basic target URLs management.
+
+
+    4. Implement the advanced targeting algorithm module that can select URLs based on provided keywords.
+
+
+    5. Design and implement a multilingual content scraping system that includes automatic language detection and language-specific
+    crawling parameters.
+
+
+    6. Integrate TensorFlow.js for machine learning process optimization, such as refining scraping strategies and performance
+    improvements.
+
+
+    7. Develop the customizable data processing and storage system to manage various data types with a scalable internal database,
+    and external export features.
+
+
+    8. Create React frontend applications with React-Redux for state management and an intuitive, multilingual user interface
+    using i18next.
+
+
+    9. Implement the real-time dashboard with data analytics and reporting capabilities using Socket.io, Moment, Cron, and
+    ECharts.
+
+
+    10. Add the security, compliance, and data protection features using Helmet, jwt, bcrypt and ensure regular updates through
+    Node-Cron.
+
+
+    11. Develop integration features with GPT and other AI technologies for data analysis and summarization using Googleapis
+    and custom AI modules.
+
+
+    12. Set up collaboration tools within the app for project co-management and communication using Socket.io for real-time
+    interaction.
+
+
+    13. Implement comprehensive logging and error handling using Winston, Morgan, and custom middleware to provide a robust
+    monitoring system.
+
+
+    14. Conduct final integration and compatibility checks, confirming everything works harmoniously, including API connections,
+    data sync, and user functionality.
+
+
+    ```
+
+
+    You are currently working on task #1 with the following description:
+
+    ```
+
+    Set up the project structure, create a Node.js application with Express and initialize a Git repository. Also, establish
+    linting and formatting standards using ESLint and Prettier.
+
+    ```
+
+
+    After all the code is finished, a human developer will check if the app works this way - `When visiting `/ping`, the server
+    responds with ''pong'' and the initial commit code should adhere to the standard code style.`
+
+
+    Now, tell me all the code that needs to be written to implement ONLY this task and have it fully working and all commands
+    that need to be run to implement this task.
+
+
+    **IMPORTANT**
+
+    When you think about in which file should the new code go to, always try to make files as small as possible and put code
+    in more smaller files rather than in one big file. Whenever a file becomes too large (more than 50 lines of code) split
+    it into smaller files.
+
+
+    **IMPORTANT**
+
+    Remember, I created an empty folder where I will start writing files that you tell me and that are needed for this app.
+
+    You do not need to make any automated tests work.
+
+
+    DO NOT specify commands to create any folders or files, they will be created automatically - just specify the relative
+    path to each file that needs to be written.
+
+
+    Never use the port 5000 to run the app, it''s reserved.'
+response: "To complete task #1, we need to set up a couple of things:\n\n1. Initialize the project with a `package.json` file.\n\
+  2. Set up the Express app.\n3. Initialize a Git repository and set up linting with ESLint and formatting with Prettier.\n\
+  4. Create a simple endpoint that responds to `/ping` with 'pong'.\n\nLet\u2019s go through these steps in detail with the\
+  \ necessary code and commands.\n\n**Initialize package.json**\nTo create the `package.json`, run this command:\n```bash\n\
+  npm init -y\n```\nThis command will create a `package.json` file with default values.\n\n**Set up Express**\n1. Install\
+  \ Express:\n```bash\nnpm install express\n```\n\n2. Create an Express server in the `src/app.js`:\n```javascript\n// src/app.js\n\
+  const express = require('express');\nconst app = express();\nconst port = process.env.PORT || 3000;\n\napp.get('/ping',\
+  \ (req, res) => {\n  res.send('pong');\n});\n\napp.listen(port, () => {\n  console.log(`Server is listening on port ${port}`);\n\
+  });\n\nmodule.exports = app;\n```\n\n**Initialize Git repository**\nTo initialize a Git repository, run this command:\n\
+  ```bash\ngit init\n```\n\n**Set up linting with ESLint**\n1. Install ESLint:\n```bash\nnpm install eslint --save-dev\n```\n\
+  \n2. Initialize ESLint:\n```bash\nnpx eslint --init\n```\nFollow the prompts to create a configuration file that fits the\
+  \ team\u2019s coding style criteria. For this exercise, we will choose a popular style guide such as Airbnb.\n\n**Set up\
+  \ formatting with Prettier**\n1. Install Prettier:\n```bash\nnpm install --save-dev prettier\n```\n\n2. Optionally, to avoid\
+  \ conflicts between Prettier and ESLint, install the following packages:\n```bash\nnpm install --save-dev eslint-config-prettier\
+  \ eslint-plugin-prettier\n```\n\n3. Create a Prettier configuration file in `.prettierrc`:\n```json\n// .prettierrc\n{\n\
+  \    \"semi\": true,\n    \"trailingComma\": \"es5\",\n    \"singleQuote\": true,\n    \"printWidth\": 80,\n    \"tabWidth\"\
+  : 2\n}\n```\n\n4. Update the ESLint configuration in `.eslintrc.js` to include Prettier plugins:\n```javascript\n// .eslintrc.js\n\
+  module.exports = {\n  // ...other config\n  extends: [\n    // ...other extends\n    'plugin:prettier/recommended'\n  ],\n\
+  \  plugins: [\n    // ...other plugins\n    'prettier'\n  ],\n  rules: {\n    // ... other rules\n    'prettier/prettier':\
+  \ ['error']\n  }\n};\n```\n\n**Create a `.gitignore` file**\nAdd a `.gitignore` file to avoid tracking files and folders\
+  \ that are not relevant to the repository:\n```\n// .gitignore\nnode_modules/\n.env\n*.log\n```\n\nRun the app with:\n```bash\n\
+  node src/app.js\n```\n\nThe application should now be accessible, and visiting `/ping` should return 'pong'.\n\nFinally,\
+  \ commit your changes:\n```bash\ngit add .\ngit commit -m \"Initial project setup with Express server and linting\"\n```\n\
+  \nThe code should adhere to standard style, and the repository will be ready to be reviewed by the human developer. When\
+  \ ready, they will visit `/ping`, and the server response should be 'pong', indicating that the task is done from a programmatic\
+  \ perspective."
