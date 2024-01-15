@@ -1,0 +1,291 @@
+endpoint: OPENAI
+model: gpt-4-1106-preview
+messages:
+- role: system
+  content: You are a full stack software developer who works in a software development agency. You write very modular and
+    clean code. Your job is to implement tasks that your tech lead assigns you. Each task has a description of what needs
+    to be implemented, a programmatic goal that will determine if a task can be marked as done and user-review goal that will
+    determine if a task is done or not but from a user perspective since it will be reviewed by a human.
+- role: user
+  content: "You are working on a App called \"AutoWeb\" and you need to write code for the entire application.\n\nHere is\
+    \ a high level description of \"AutoWeb\":\n```\nThe software application \"AutoWeb\" will be built with the following\
+    \ features:\n\n- Advanced Targeting Algorithms to enhance data identification and scraping activities based on keywords\
+    \ or URLs.\n- Machine Learning Integration for process optimization over time.\n- Customizable Data Processing to allow\
+    \ users to format, tag, categorize, and integrate data with their systems.\n- An intuitive User Interface and Experience\
+    \ with real-time crawling and scraping activity monitoring through dashboards.\n- Compliance and Security Features for\
+    \ adherence to web scraping laws and data protection.\n- Collaboration Tools for project co-management and communication.\n\
+    - Scalability and Performance Optimization capable of large-scale operations.\n- Analytics and Reporting Capabilities\
+    \ for data insights and decision-making processes.\n- Integration with GPT and Other AI Technologies for data analysis\
+    \ and summarization.\n- Continuous Updates and Support adjusted to the latest web technologies and customer needs.\n\n\
+    AutoWeb will specifically target the following data types for scraping:\n\n- Textual Content such as webpage articles,\
+    \ blogs, research papers, reports, and forum posts.\n- Structured Data including tables, lists, and data in HTML/XML/JSON.\n\
+    - Images, their associated metadata, photographs, and graphics.\n- Videos along with their thumbnails, previews, and metadata.\n\
+    - Audio Files and accompanied transcripts if available.\n- Social Media Content including posts, user profile information,\
+    \ and social graphs.\n- E-commerce Data like product information, pricing, reviews, ratings, and availability.\n- Geospatial\
+    \ Data encompassing maps, locations, and geotagged content.\n- Scientific and Statistical Data including datasets, charts,\
+    \ and graphs.\n- PDFs and Documents.\n- Event and Schedule Information.\n\nMultilingual support features will include:\n\
+    \n- Multilingual Content Scraping with automatic language detection.\n- Language-Specific Crawling Parameters.\n- Translation\
+    \ and Localization Tools.\n- Multilingual Data Processing and Analysis.\n- A User Interface in multiple languages.\n-\
+    \ Support for Non-Latin Scripts.\n- Cultural and Contextual Considerations with collaboration from language experts.\n\
+    - Customizable Language Settings for Users.\n\nStorage solutions for AutoWeb will entail:\n\n- An internal scalable database\
+    \ system for storing and managing diverse data types.\n- User-friendly data management tools for stored data navigation,\
+    \ editing, organization, and tagging.\n- Automated Backup and Recovery systems for data integrity.\n- Compatibility with\
+    \ various external database formats and systems, with seamless data exportability.\n- Customizable Export Options for\
+    \ data formatting.\n- API Integration for easy connection with external databases and systems.\n- Real-Time Sync Capability\
+    \ to keep external databases current with new data.\n\nAutoWeb will offer both internal and external data storage options\
+    \ providing flexibility, scalability, convenience, and compliance with diverse security requirements.\n```\n\nHere are\
+    \ the technologies that you need to use for this project:\n```\n- Node.js\n- Express\n- MongoDB\n- Mongoose\n- Puppeteer\n\
+    - Cheerio\n- TensorFlow.js\n- React\n- Redux\n- Socket.io\n- Bootstrap\n- HTML\n- CSS3\n- axios\n- JSON\n- jsonwebtoken\n\
+    - bcryptjs\n- cors\n- helmet\n- compression\n- i18next\n- react-i18next\n- moment\n- cron\n- echarts\n- papaparse\n- multer\n\
+    - sharp\n- node-cron\n- nodemailer\n- winston\n- morgan\n- lodash\n- dotenv\n- passport\n- passport-local\n- express-session\n\
+    - connect-mongo\n- body-parser\n- serve-static\n- pdf-parse\n- xml2js\n- node-geocoder\n- googleapis\n```\n\n\nDevelopment\
+    \ process of this app was split into smaller tasks. Here is the list of all tasks:\n```\n1. Set up the project structure,\
+    \ create a Node.js application with Express and initialize a Git repository. Also, establish linting and formatting standards\
+    \ using ESLint and Prettier.\n\n2. Create and configure a MongoDB database with Mongoose, and set up a user authentication\
+    \ system using Passport.js with a simple User schema.\n\n3. Develop the data scraping module using Puppeteer and Cheerio\
+    \ for dynamic and static content respectively, including basic target URLs management.\n\n4. Implement the advanced targeting\
+    \ algorithm module that can select URLs based on provided keywords.\n\n5. Design and implement a multilingual content\
+    \ scraping system that includes automatic language detection and language-specific crawling parameters.\n\n6. Integrate\
+    \ TensorFlow.js for machine learning process optimization, such as refining scraping strategies and performance improvements.\n\
+    \n7. Develop the customizable data processing and storage system to manage various data types with a scalable internal\
+    \ database, and external export features.\n\n8. Create React frontend applications with React-Redux for state management\
+    \ and an intuitive, multilingual user interface using i18next.\n\n9. Implement the real-time dashboard with data analytics\
+    \ and reporting capabilities using Socket.io, Moment, Cron, and ECharts.\n\n10. Add the security, compliance, and data\
+    \ protection features using Helmet, jwt, bcrypt and ensure regular updates through Node-Cron.\n\n11. Develop integration\
+    \ features with GPT and other AI technologies for data analysis and summarization using Googleapis and custom AI modules.\n\
+    \n12. Set up collaboration tools within the app for project co-management and communication using Socket.io for real-time\
+    \ interaction.\n\n13. Implement comprehensive logging and error handling using Winston, Morgan, and custom middleware\
+    \ to provide a robust monitoring system.\n\n14. Conduct final integration and compatibility checks, confirming everything\
+    \ works harmoniously, including API connections, data sync, and user functionality.\n\n```\nYou are currently working\
+    \ on task \"Set up the project structure, create a Node.js application with Express and initialize a Git repository. Also,\
+    \ establish linting and formatting standards using ESLint and Prettier.\" and you have to focus only on that task.\n\n\
+    \nA part of the app is already finished.Here are files that are currently implemented:\n\n**/package.json**\n```\n{\n\
+    \  \"name\": \"autoweb\",\n  \"version\": \"1.0.0\",\n  \"description\": \"\",\n  \"main\": \"index.js\",\n  \"directories\"\
+    : {\n    \"test\": \"tests\"\n  },\n  \"scripts\": {\n    \"start\": \"node src/app.js\",\n    \"test\": \"echo \\\"Error:\
+    \ no test specified\\\" && exit 1\"\n  },\n  \"keywords\": [],\n  \"author\": \"\",\n  \"license\": \"ISC\",\n  \"dependencies\"\
+    : {\n    \"express\": \"^4.18.2\"\n  },\n  \"devDependencies\": {\n    \"eslint\": \"^8.56.0\",\n    \"eslint-config-prettier\"\
+    : \"^9.1.0\",\n    \"eslint-plugin-prettier\": \"^5.1.3\",\n    \"prettier\": \"^3.2.2\"\n  }\n}\n\n```\n\n**src/app.js**\n\
+    ```\nconst express = require('express');\nconst app = express();\nconst port = process.env.PORT || 3001;\n\napp.get('/ping',\
+    \ (req, res) => {\n  res.send('pong');\n});\n\napp.listen(port, (error) => {\n  if (error) {\n    console.error('Error\
+    \ starting server:', error);\n    return;\n  }\n  console.log(`Server is listening on port ${port}`);\n});\n\nmodule.exports\
+    \ = app;\n\n```\n\n**/.eslintrc.js**\n```\nmodule.exports = {\n  \"extends\": [\n    \"plugin:prettier/recommended\"\n\
+    \  ],\n  \"plugins\": [\n    \"prettier\"\n  ],\n  \"rules\": {\n    \"prettier/prettier\": [\"error\"]\n  }\n};\n\n```\n\
+    \n**/.gitignore**\n```\nnode_modules/\n.env\n*.log\n\n```\n\n**/.prettierrc**\n```\n{\n  \"semi\": true,\n  \"trailingComma\"\
+    : \"es5\",\n  \"singleQuote\": true,\n  \"printWidth\": 80,\n  \"tabWidth\": 2\n}\n\n```\n\n\nNow, your colleague who\
+    \ is testing the app \"AutoWeb\" sent you some additional info. Here it is:\n```\n(base) PS E:\\gpt-pilot\\workspace\\\
+    Workshop_Wizard\\workshop-wizard-web\\gpt-pilot\\workspace\\AutoWeb> npx eslint src/\n\nE:\\gpt-pilot\\workspace\\Workshop_Wizard\\\
+    workshop-wizard-web\\gpt-pilot\\workspace\\AutoWeb\\src\\app.js\n  1:1  error  Parsing error: The keyword 'const' is reserved\n\
+    \n\u2716 1 problem (1 error, 0 warnings)\n```\n\nCan you debug this issue or implement changes to comply with the additional\
+    \ user input?\n\nTell me all the new code that needs to be written or modified to implement current task and have it fully\
+    \ working. You can count that the environment is set up previously and packages listed in files are installed so tell\
+    \ me only commands needed for installation of new dependencies, if there are any.\n\n\n**IMPORTANT**\nWhen you think about\
+    \ in which file should the new code go to, always try to make files as small as possible and put code in more smaller\
+    \ files rather than in one big file. Whenever a file becomes too large (more than 50 lines of code) split it into smaller\
+    \ files.\n\n\nYou do not need to make any automated tests work.\n\n**IMPORTANT**\nDo not tell me anything about setting\
+    \ up the database or anything OS related - only if some dependencies need to be installed."
+- role: assistant
+  content: "The error you're encountering suggests that ESLint is not parsing the JavaScript file according to the ECMAScript\
+    \ version that supports the 'const' keyword. Since 'const' is a feature introduced in ES2015 (ES6), you need to make sure\
+    \ that ESLint is set up to parse your code as ES6 or higher.\n\nHere's what you need to do to fix the ESLint parsing error:\n\
+    \n1. Update the `.eslintrc.js` file to include a parser option that specifies the ECMAScript version, like so:\n\n```javascript\n\
+    module.exports = {\n  \"parserOptions\": {\n    \"ecmaVersion\": 2020, // You can set this to 6 or higher (up to the latest\
+    \ version, e.g., 2020)\n    \"sourceType\": \"module\",\n  },\n  \"extends\": [\n    \"eslint:recommended\",\n    \"plugin:prettier/recommended\"\
+    \n  ],\n  \"plugins\": [\n    \"prettier\"\n  ],\n  \"rules\": {\n    \"prettier/prettier\": [\"error\"]\n  },\n  \"env\"\
+    : {\n    \"es6\": true,\n    \"node\": true // Adds all of the Node.js global variables and Node.js scoping.\n  }\n};\n\
+    ```\nThis tells ESLint to use the correct parser settings so that ES6 syntax such as 'const', 'let', arrow functions,\
+    \ etc., won't throw parsing errors.\n\n2. ESLint is set up correctly in the provided `.eslintrc.js` configuration, but\
+    \ if you are using an environment that requires specific ECMAScript version settings, you should add them.\n\nConsidering\
+    \ the current state of the `.eslintrc.js` and `package.json` files, no additional dependencies should be required. The\
+    \ ESLint configuration must solely be updated to match the correct ES6+ environment.\n\nAfter updating the `.eslintrc.js`\
+    \ file accordingly, you should be able to run `npx eslint src/` without encountering the previously mentioned error.\n\
+    \nAs for the rest of the project structure, it is already modular, having separate configuration files and a single `app.js`\
+    \ initializing the Express server. The current codebase should be maintainable as it grows, provided that each feature/module\
+    \ is added in separate files and required into the main application as needed. This will keep the primary application\
+    \ file clean and focused solely on server configuration and middleware management.\n\nEnsure to commit the changes and\
+    \ push them to the Git repository to keep track of the project's versioning:\n\n```\ngit add .\ngit commit -m \"Update\
+    \ ESLint configuration\"\ngit push origin main\n```\n\nThese commands add files to staging, commit the changes with a\
+    \ message, and push the changes to the main branch in the repository. As the project grows, keep in mind to keep your\
+    \ commits atomic, and push regularly after completing each significant change or feature implementation."
+- role: user
+  content: 'Ok, now, take your previous message and convert it to actionable items. An item might be a code change or a command
+    run. When you need to change code, make sure that you put the entire content of the file in the value of `content` key
+    even though you will likely copy and paste the most of the previous message. The commands must be able to run on a Windows
+    machine.
+
+
+    **IMPORTANT**
+
+    Within the file modifications, anything needs to be written by the user, add the comment in the same line as the code
+    that starts with `// INPUT_REQUIRED {input_description}` where `input_description` is a description of what needs to be
+    added here by the user. Just make sure that you put comments only inside files that support comments (e.g. not in JSON
+    files).
+
+
+    **IMPORTANT**
+
+    When you want to add a comment that tells the user to add the previous implementation at that place, make sure that the
+    comment starts with `[OLD CODE]` and add a description of what old code should be inserted here. For example, `[OLD CODE]
+    Login route`.
+
+
+    **IMPORTANT**
+
+    When you think about in which file should the new code go to, always try to make files as small as possible and put code
+    in more smaller files rather than in one big file. Whenever a file becomes too large (more than 50 lines of code) split
+    it into smaller files.'
+- role: user
+  content: "**IMPORTANT**\nYou must respond with ONLY the JSON object, with NO additional text or explanation.\n\nHere is\
+    \ the schema for the expected JSON object:\n```json\n{\n    \"tasks\": {\n        \"type\": \"array\",\n        \"description\"\
+    : \"List of smaller development steps that need to be done to complete the entire task.\",\n        \"items\": {\n   \
+    \         \"type\": \"object\",\n            \"description\": \"A smaller development step that needs to be done to complete\
+    \ the entire task.  Remember, if you need to run a command that doesn't finish by itself (eg. a command to run an  If\
+    \ you need to create a directory that doesn't exist and is not the root project directory, always create it by running\
+    \ a command `mkdir`\",\n            \"properties\": {\n                \"type\": {\n                    \"type\": \"string\"\
+    ,\n                    \"enum\": [\n                        \"command\",\n                        \"code_change\",\n \
+    \                       \"human_intervention\"\n                    ],\n                    \"description\": \"Type of\
+    \ the development step that needs to be done to complete the entire task.\"\n                },\n                \"command\"\
+    : {\n                    \"type\": \"object\",\n                    \"description\": \"Command that needs to be run to\
+    \ complete the current task. This should be used only if the task is of a type \\\"command\\\".\",\n                 \
+    \   \"properties\": {\n                        \"command\": {\n                            \"type\": \"string\",\n   \
+    \                         \"description\": \"A single command that needs to be executed.\"\n                        },\n\
+    \                        \"timeout\": {\n                            \"type\": \"number\",\n                         \
+    \   \"description\": \"Timeout in milliseconds that represent the approximate time this command takes to finish. If you\
+    \ need to run a command that doesnt't finish by itself (eg. a command to run an app), set the timeout to to a value long\
+    \ enough to determine that it has started successfully and provide a command_id. If you need to create a directory that\
+    \ doesn't exist and is not the root project directory, always create it by running a command `mkdir`\"\n             \
+    \           },\n                        \"success_message\": {\n                            \"type\": \"string\",\n  \
+    \                          \"description\": \"A message to look for in the output of the command to determine if successful\
+    \ or not.\"\n                        },\n                        \"command_id\": {\n                            \"type\"\
+    : \"string\",\n                            \"description\": \"If the process needs to continue running after the command\
+    \ is executed provide a unique command identifier which you can use to kill the process later.\"\n                   \
+    \     }\n                    },\n                    \"required\": [\n                        \"command\",\n         \
+    \               \"timeout\"\n                    ]\n                },\n                \"code_change\": {\n         \
+    \           \"type\": \"object\",\n                    \"description\": \"A code change that needs to be implemented.\
+    \ This should be used only if the task is of a type \\\"code_change\\\".\",\n                    \"properties\": {\n \
+    \                       \"name\": {\n                            \"type\": \"string\",\n                            \"\
+    description\": \"Name of the file that needs to be implemented.\"\n                        },\n                      \
+    \  \"path\": {\n                            \"type\": \"string\",\n                            \"description\": \"Full\
+    \ path of the file with the file name that needs to be implemented.\"\n                        },\n                  \
+    \      \"content\": {\n                            \"type\": \"string\",\n                            \"description\"\
+    : \"Full content of the file that needs to be implemented. **IMPORTANT**When you want to add a comment that tells the\
+    \ user to add the previous implementation at that place, make sure that the comment starts with `[OLD CODE]` and add a\
+    \ description of what old code should be inserted here. For example, `[OLD CODE] Login route`.\"\n                   \
+    \     }\n                    },\n                    \"required\": [\n                        \"name\",\n            \
+    \            \"path\",\n                        \"content\"\n                    ]\n                },\n             \
+    \   \"human_intervention_description\": {\n                    \"type\": \"string\",\n                    \"description\"\
+    : \"Description of a step in debugging this issue when there is a human intervention needed. This should be used only\
+    \ if the task is of a type \\\"human_intervention\\\".\"\n                }\n            },\n            \"required\"\
+    : [\n                \"type\"\n            ]\n        }\n    }\n}\n```\n\n"
+- role: user
+  content: "[INST]I received an incomplete JSON response. Please provide the remainder of the JSON object. I will append your\
+    \ entire response to the incomplete JSON data below so it is important that you must not include any of the data already\
+    \ received or any text that does not complete the JSON data.\nA response which starts with \"Here is the remainder of\
+    \ the JSON object\" would be an example of an invalid response, a preamble must NOT be included.\nNote that because the\
+    \ JSON data I have already received is an incomplete JSON object, you will not need to include the opening and closing\
+    \ curly braces in your response, but rather continue off from EXACTLY where the received JSON ends.\n\nJSON received:\n\
+    [/INST]\n{\n    \"tasks\": [\n        {\n            \"type\": \"code_change\",\n            \"code_change\": {\n    \
+    \            \"name\": \".eslintrc.js\",\n                \"path\": \"/.eslintrc.js\",\n                \"content\": \"\
+    module.exports = {\\n  \\\"parserOptions\\\": {\\n    \\\"ecmaVersion\\\": 2020,\\n    \\\"sourceType\\\": \\\"module\\\
+    \"\\n  },\\n  \\\"extends\\\": [\\n    \\\"eslint:recommended\\\",\\n    \\\"plugin:prettier/recommended\\\"\\n  ],\\\
+    n  \\\"plugins\\\": [\\n    \\\"prettier\\\"\\n  ],\\n  \\\"rules\\\": {\\n    \\\"prettier/prettier\\\": [\\\"error\\\
+    \"]\\n  },\\n  \\\"env\\\": {\\n    \\\"es6\\\": true,\\n    \\\"node\\\": true\\n  }\\n};\\n\"\n            }\n     \
+    \   },\n        {\n            \"type\": \"command\",\n            \"command\": {\n                \"command\": \"git\
+    \ add .\",\n                \"timeout\": 2000\n            }\n        },\n        {\n            \"type\": \"command\"\
+    ,\n            \"command\": {\n                \"command\": \"git commit -m \\\"Update ESLint configuration\\\"\", //\
+    \ INPUT_REQUIRED {Commit message describing the changes made}\n                \"timeout\": 2000\n            }\n    \
+    \    },\n        {\n            \"type\": \"command\",\n            \"command\": {\n                \"command\": \"git\
+    \ push origin main\", // INPUT_REQUIRED {Ensure correct remote name and branch}\n                \"timeout\": 10000\n\
+    \            }\n        }\n    ]\n}"
+- role: user
+  content: "[INST]I received an incomplete JSON response. Please provide the remainder of the JSON object. I will append your\
+    \ entire response to the incomplete JSON data below so it is important that you must not include any of the data already\
+    \ received or any text that does not complete the JSON data.\nA response which starts with \"Here is the remainder of\
+    \ the JSON object\" would be an example of an invalid response, a preamble must NOT be included.\nNote that because the\
+    \ JSON data I have already received is an incomplete JSON object, you will not need to include the opening and closing\
+    \ curly braces in your response, but rather continue off from EXACTLY where the received JSON ends.\n\nJSON received:\n\
+    [/INST]\n{\n    \"tasks\": [\n        {\n            \"type\": \"code_change\",\n            \"code_change\": {\n    \
+    \            \"name\": \".eslintrc.js\",\n                \"path\": \"/.eslintrc.js\",\n                \"content\": \"\
+    module.exports = {\\n  \\\"parserOptions\\\": {\\n    \\\"ecmaVersion\\\": 2020,\\n    \\\"sourceType\\\": \\\"module\\\
+    \"\\n  },\\n  \\\"extends\\\": [\\n    \\\"eslint:recommended\\\",\\n    \\\"plugin:prettier/recommended\\\"\\n  ],\\\
+    n  \\\"plugins\\\": [\\n    \\\"prettier\\\"\\n  ],\\n  \\\"rules\\\": {\\n    \\\"prettier/prettier\\\": [\\\"error\\\
+    \"]\\n  },\\n  \\\"env\\\": {\\n    \\\"es6\\\": true,\\n    \\\"node\\\": true\\n  }\\n};\\n\"\n            }\n     \
+    \   },\n        {\n            \"type\": \"command\",\n            \"command\": {\n                \"command\": \"git\
+    \ add .\",\n                \"timeout\": 2000\n            }\n        },\n        {\n            \"type\": \"command\"\
+    ,\n            \"command\": {\n                \"command\": \"git commit -m \\\"Update ESLint configuration\\\"\", //\
+    \ INPUT_REQUIRED {Commit message describing the changes made}\n                \"timeout\": 2000\n            }\n    \
+    \    },\n        {\n            \"type\": \"command\",\n            \"command\": {\n                \"command\": \"git\
+    \ push origin main\", // INPUT_REQUIRED {Ensure correct remote name and branch}\n                \"timeout\": 10000\n\
+    \            }\n        }\n    ]\n}]"
+- role: user
+  content: "[INST]I received an incomplete JSON response. Please provide the remainder of the JSON object. I will append your\
+    \ entire response to the incomplete JSON data below so it is important that you must not include any of the data already\
+    \ received or any text that does not complete the JSON data.\nA response which starts with \"Here is the remainder of\
+    \ the JSON object\" would be an example of an invalid response, a preamble must NOT be included.\nNote that because the\
+    \ JSON data I have already received is an incomplete JSON object, you will not need to include the opening and closing\
+    \ curly braces in your response, but rather continue off from EXACTLY where the received JSON ends.\n\nJSON received:\n\
+    [/INST]\n{\n    \"tasks\": [\n        {\n            \"type\": \"code_change\",\n            \"code_change\": {\n    \
+    \            \"name\": \".eslintrc.js\",\n                \"path\": \"/.eslintrc.js\",\n                \"content\": \"\
+    module.exports = {\\n  \\\"parserOptions\\\": {\\n    \\\"ecmaVersion\\\": 2020,\\n    \\\"sourceType\\\": \\\"module\\\
+    \"\\n  },\\n  \\\"extends\\\": [\\n    \\\"eslint:recommended\\\",\\n    \\\"plugin:prettier/recommended\\\"\\n  ],\\\
+    n  \\\"plugins\\\": [\\n    \\\"prettier\\\"\\n  ],\\n  \\\"rules\\\": {\\n    \\\"prettier/prettier\\\": [\\\"error\\\
+    \"]\\n  },\\n  \\\"env\\\": {\\n    \\\"es6\\\": true,\\n    \\\"node\\\": true\\n  }\\n};\\n\"\n            }\n     \
+    \   },\n        {\n            \"type\": \"command\",\n            \"command\": {\n                \"command\": \"git\
+    \ add .\",\n                \"timeout\": 2000\n            }\n        },\n        {\n            \"type\": \"command\"\
+    ,\n            \"command\": {\n                \"command\": \"git commit -m \\\"Update ESLint configuration\\\"\", //\
+    \ INPUT_REQUIRED {Commit message describing the changes made}\n                \"timeout\": 2000\n            }\n    \
+    \    },\n        {\n            \"type\": \"command\",\n            \"command\": {\n                \"command\": \"git\
+    \ push origin main\", // INPUT_REQUIRED {Ensure correct remote name and branch}\n                \"timeout\": 10000\n\
+    \            }\n        }\n    ]\n}]]}"
+- role: user
+  content: "[INST]I received an incomplete JSON response. Please provide the remainder of the JSON object. I will append your\
+    \ entire response to the incomplete JSON data below so it is important that you must not include any of the data already\
+    \ received or any text that does not complete the JSON data.\nA response which starts with \"Here is the remainder of\
+    \ the JSON object\" would be an example of an invalid response, a preamble must NOT be included.\nNote that because the\
+    \ JSON data I have already received is an incomplete JSON object, you will not need to include the opening and closing\
+    \ curly braces in your response, but rather continue off from EXACTLY where the received JSON ends.\n\nJSON received:\n\
+    [/INST]\n{\n    \"tasks\": [\n        {\n            \"type\": \"code_change\",\n            \"code_change\": {\n    \
+    \            \"name\": \".eslintrc.js\",\n                \"path\": \"/.eslintrc.js\",\n                \"content\": \"\
+    module.exports = {\\n  \\\"parserOptions\\\": {\\n    \\\"ecmaVersion\\\": 2020,\\n    \\\"sourceType\\\": \\\"module\\\
+    \"\\n  },\\n  \\\"extends\\\": [\\n    \\\"eslint:recommended\\\",\\n    \\\"plugin:prettier/recommended\\\"\\n  ],\\\
+    n  \\\"plugins\\\": [\\n    \\\"prettier\\\"\\n  ],\\n  \\\"rules\\\": {\\n    \\\"prettier/prettier\\\": [\\\"error\\\
+    \"]\\n  },\\n  \\\"env\\\": {\\n    \\\"es6\\\": true,\\n    \\\"node\\\": true\\n  }\\n};\\n\"\n            }\n     \
+    \   },\n        {\n            \"type\": \"command\",\n            \"command\": {\n                \"command\": \"git\
+    \ add .\",\n                \"timeout\": 2000\n            }\n        },\n        {\n            \"type\": \"command\"\
+    ,\n            \"command\": {\n                \"command\": \"git commit -m \\\"Update ESLint configuration\\\"\", //\
+    \ INPUT_REQUIRED {Commit message describing the changes made}\n                \"timeout\": 2000\n            }\n    \
+    \    },\n        {\n            \"type\": \"command\",\n            \"command\": {\n                \"command\": \"git\
+    \ push origin main\", // INPUT_REQUIRED {Ensure correct remote name and branch}\n                \"timeout\": 10000\n\
+    \            }\n        }\n    ]\n}]]}]}"
+- role: user
+  content: "[INST]I received an incomplete JSON response. Please provide the remainder of the JSON object. I will append your\
+    \ entire response to the incomplete JSON data below so it is important that you must not include any of the data already\
+    \ received or any text that does not complete the JSON data.\nA response which starts with \"Here is the remainder of\
+    \ the JSON object\" would be an example of an invalid response, a preamble must NOT be included.\nNote that because the\
+    \ JSON data I have already received is an incomplete JSON object, you will not need to include the opening and closing\
+    \ curly braces in your response, but rather continue off from EXACTLY where the received JSON ends.\n\nJSON received:\n\
+    [/INST]\n{\n    \"tasks\": [\n        {\n            \"type\": \"code_change\",\n            \"code_change\": {\n    \
+    \            \"name\": \".eslintrc.js\",\n                \"path\": \"/.eslintrc.js\",\n                \"content\": \"\
+    module.exports = {\\n  \\\"parserOptions\\\": {\\n    \\\"ecmaVersion\\\": 2020,\\n    \\\"sourceType\\\": \\\"module\\\
+    \"\\n  },\\n  \\\"extends\\\": [\\n    \\\"eslint:recommended\\\",\\n    \\\"plugin:prettier/recommended\\\"\\n  ],\\\
+    n  \\\"plugins\\\": [\\n    \\\"prettier\\\"\\n  ],\\n  \\\"rules\\\": {\\n    \\\"prettier/prettier\\\": [\\\"error\\\
+    \"]\\n  },\\n  \\\"env\\\": {\\n    \\\"es6\\\": true,\\n    \\\"node\\\": true\\n  }\\n};\\n\"\n            }\n     \
+    \   },\n        {\n            \"type\": \"command\",\n            \"command\": {\n                \"command\": \"git\
+    \ add .\",\n                \"timeout\": 2000\n            }\n        },\n        {\n            \"type\": \"command\"\
+    ,\n            \"command\": {\n                \"command\": \"git commit -m \\\"Update ESLint configuration\\\"\", //\
+    \ INPUT_REQUIRED {Commit message describing the changes made}\n                \"timeout\": 2000\n            }\n    \
+    \    },\n        {\n            \"type\": \"command\",\n            \"command\": {\n                \"command\": \"git\
+    \ push origin main\", // INPUT_REQUIRED {Ensure correct remote name and branch}\n                \"timeout\": 10000\n\
+    \            }\n        }\n    ]\n}]]}]}]}"
+- role: user
+  content: '[INST]I received an invalid JSON response. The response was a parseable JSON object, but it is not valid against
+    the schema I provided. The JSON is invalid Invalid value: `]`
+
+
+    Please try again with a valid JSON object, referring to the previous JSON schema I provided above.
+
+
+    A response which starts with "I''m sorry for the confusion" would be an example of an invalid response, a preamble must
+    NOT be included.
+
+    [/INST]'
+response: ']}'
